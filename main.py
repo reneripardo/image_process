@@ -1,20 +1,34 @@
+from image_process.ct_processing.ct_image import median_filter, mean_filter, gaussian_filter
+
 import argparse
 import matplotlib.pyplot as plt
 import cv2
+
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('-i', '--path_image', default='E:\\google_drive\\github\\repositories\\image_process\\img_example_input.tif',
                     help='path image example')
+    ap.add_argument('-i2', '--path_image2', default='E:\\google_drive\\github\\repositories\\image_process\\img_example2.tif',
+                    help='path image example')
 
     args = vars(ap.parse_args())
 
-    img = cv2.imread(args['path_image'], 0)
+    image_input = cv2.imread(args['path_image2'],1)
 
-    plt.subplot(121), plt.imshow(img, cmap='gray')
-    plt.title('Imagem'), plt.xticks([]), plt.yticks([])
-    plt.subplot(122), plt.imshow(img, cmap='gray')
-    plt.title('Imagem'), plt.xticks([]), plt.yticks([])
+    image_mean_filter = mean_filter(image_input, 5)
+    image_median_filter = median_filter(image_input, 5)
+    image_gaussian_filter = gaussian_filter(image_input, 5)
+
+
+    plt.subplot(221), plt.imshow(image_input, cmap='gray')
+    plt.title('Imagem original'), plt.xticks([]), plt.yticks([])
+    plt.subplot(222), plt.imshow(image_mean_filter, cmap='gray')
+    plt.title('Filtro da média (kernel=5x5)'), plt.xticks([]), plt.yticks([])
+    plt.subplot(223), plt.imshow(image_median_filter, cmap='gray')
+    plt.title('Filtro da mediana (kernel=5x5)'), plt.xticks([]), plt.yticks([])
+    plt.subplot(224), plt.imshow(image_gaussian_filter, cmap='gray')
+    plt.title('Filtro gaussiana (kernel=5x5)'), plt.xticks([]), plt.yticks([])
     plt.show()
 
 
