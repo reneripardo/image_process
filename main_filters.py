@@ -1,5 +1,5 @@
-from image_process.ct_processing.ct_image import median_filter, mean_filter, gaussian_filter, filter_laplacian, \
-    filter_sobel
+from image_process.ct_processing.ct_image import median_filter, mean_filter, gaussian_filter, laplacian_filter, \
+    sobel_filter
 
 import argparse
 import matplotlib.pyplot as plt
@@ -34,8 +34,8 @@ def main():
     plt.show()
 
     # high pass filter
-    image_filter_laplacian = filter_laplacian(image_input2)
-    image_sobx, image_soby = filter_sobel(image_input2, 5)
+    image_filter_laplacian = laplacian_filter(image_input2)
+    image_sobx, image_soby = sobel_filter(image_input2, 5)
 
     plt.subplot(221), plt.imshow(image_input2, cmap='gray')
     plt.title('Imagem original'), plt.xticks([]), plt.yticks([])
