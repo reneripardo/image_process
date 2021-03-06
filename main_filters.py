@@ -8,9 +8,9 @@ import cv2
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument('-i', '--path_image', default='E:\\google_drive\\github\\repositories\\image_process\\img_example.tif',
+    ap.add_argument('-i', '--path_image', default='E:\\google_drive\\github\\repositories\\image_process\\images\\img_example.tif',
                     help='path image example')
-    ap.add_argument('-i2', '--path_image2', default='E:\\google_drive\\github\\repositories\\image_process\\img_example2.tif',
+    ap.add_argument('-i2', '--path_image2', default='E:\\google_drive\\github\\repositories\\image_process\\images\\img_example2.tif',
                     help='path image example')
 
     args = vars(ap.parse_args())

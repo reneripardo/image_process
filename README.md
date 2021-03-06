@@ -1,5 +1,5 @@
-# Digital image processing
-Aplicações com filtros.
+# Digital Image Processing
+Filtros
 
 Informações: 
     
@@ -9,7 +9,11 @@ Informações:
     Ambiente PyCharm;
     main_filters.py -> Chamada das funções, leitura e apresentação das imagens;
     Linguagem python com o auxílio das bibliotecas matplotlib e cv2.
-    Resultado ilustrado nos arquivos low_pass_filter_result.PNG e high_pass_filter_result.PNG;
+    Pasta "images" ->  low_pass_filter_result.PNG e high_pass_filter_result.PNG representam os resultaods;
     
-      
+Processamento morfológico de imagens
+
+Informações: 
+
+    xx;
       
