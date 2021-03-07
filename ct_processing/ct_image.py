@@ -1,4 +1,5 @@
 import cv2
+import numpy as np
 
 def mean_filter(image_in, kernel=3):
     """Apply mean filter.
@@ -56,3 +57,46 @@ def sobel_filter(image_in, kernel=3):
     image_outy = cv2.Sobel(image_in, cv2.CV_64F, 0, 1, ksize=kernel)
     return image_outx, image_outy
 
+def morpho_erode(image_in, kernel=3):
+    """Apply erosion.
+        Arguments:
+            image_in {numpy.array} -- image input.
+            kernel {int} -- neighborhood size.
+        Returns:
+            image_out {numpy.array} -- output image.
+    """
+    image_out = cv2.erode(image_in, np.ones((kernel,kernel),np.uint8), iterations=1)
+    return image_out
+
+def morpho_dilate(image_in, kernel=3):
+    """Apply delation.
+        Arguments:
+            image_in {numpy.array} -- image input.
+            kernel {int} -- neighborhood size.
+        Returns:
+            image_out {numpy.array} -- output image.
+    """
+    image_out = cv2.dilate(image_in, np.ones((kernel,kernel),np.uint8), iterations=1)
+    return image_out
+
+def morpho_open(image_in, kernel=3):
+    """Erosion followed by dilation.
+        Arguments:
+            image_in {numpy.array} -- image input.
+            kernel {int} -- neighborhood size.
+        Returns:
+            image_out {numpy.array} -- output image.
+    """
+    image_out = cv2.morphologyEx(image_in, cv2.MORPH_OPEN, np.ones((kernel,kernel),np.uint8))
+    return image_out
+
+def morpho_close(image_in, kernel=3):
+    """Dilation followed by Erosion.
+        Arguments:
+            image_in {numpy.array} -- image input.
+            kernel {int} -- neighborhood size.
+        Returns:
+            image_out {numpy.array} -- output image.
+    """
+    image_out = cv2.morphologyEx(image_in, cv2.MORPH_CLOSE, np.ones((kernel,kernel),np.uint8))
+    return image_out
