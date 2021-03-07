@@ -1,7 +1,5 @@
 # Digital Image Processing
 Filtros
-
-Informações: 
     
     Neste exemplo são aplicados os filtros:
         Passa baixa: média, mediana e gaussiano.
@@ -12,8 +10,6 @@ Informações:
     Resultados na pasta "images" -> low_pass_filter_result.PNG e high_pass_filter_result.PNG.
     
 Processamento morfológico de imagens
-
-Informações: 
 
     Neste exemplo são aplicadas as operações:
         Dilatação, erosão, fechamento e abertura.
