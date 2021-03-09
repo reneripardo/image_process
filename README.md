@@ -16,3 +16,10 @@ Processamento morfológico de imagens
     Ambiente PyCharm;
     main_morpho_image.py -> Chamada das funções, leitura e apresentação das imagens;
     Resultados na pasta "images" -> erode_dilate_morphological.PNG e close_open_morphological.PNG;
+
+Histogramas
+
+    Neste exemplo são aplicadas operações com histogramas;
+    Ambiente PyCharm;
+    main_histogram.py -> leitura e apresentação das imagens;
+    Resultados na pasta "images" -> img_equalize.PNG ilustra as imagens para o exemplo e o arquivo img_histograms.PNG ilustra os histogramas; 
