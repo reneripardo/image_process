@@ -1,7 +1,8 @@
 import argparse
 import matplotlib.pyplot as plt
 import cv2
-import numpy as np
+import locale
+locale.setlocale(locale.LC_NUMERIC, "deu_deu")
 
 
 def main():
@@ -13,13 +14,22 @@ def main():
 
     image_input = cv2.imread(args['path_image'],0)
 
+    # Equalization
     image_equ = cv2.equalizeHist(image_input)
-    # image_equ = np.hstack((op_equ, op_equ))  # stacking images side-by-side
 
-    plt.subplot(121), plt.imshow(image_input, cmap='gray')
+    # Otsu's thresholding
+    _, image_input_otsu = cv2.threshold(image_input, 0, 255, cv2.THRESH_BINARY+cv2.THRESH_OTSU)
+    _, image_equ_otsu = cv2.threshold(image_equ, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+
+
+    plt.subplot(221), plt.imshow(image_input, cmap='gray')
     plt.title('Imagem original'), plt.xticks([]), plt.yticks([])
-    plt.subplot(122), plt.imshow(image_equ, cmap='gray')
+    plt.subplot(222), plt.imshow(image_equ, cmap='gray')
     plt.title('Com equalização'), plt.xticks([]), plt.yticks([])
+    plt.subplot(223), plt.imshow(image_input_otsu, cmap='gray')
+    plt.title('Limiarização com Otsu \n na imagem original'), plt.xticks([]), plt.yticks([])
+    plt.subplot(224), plt.imshow(image_equ_otsu, cmap='gray')
+    plt.title('Limiarização com Otsu \n na imagem com equalização'), plt.xticks([]), plt.yticks([])
     plt.show()
 
 
